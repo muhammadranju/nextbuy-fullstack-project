@@ -228,7 +228,7 @@ const Wishlist: FC = () => {
                 </td>
                 <td>{item.productId.title}</td>
                 <td>$ {item.productId.price}</td>
-                <td>{item.productId.status}</td>
+                <td>{item.productId?.status}</td>
                 <td>
                   <Link href={`/products/${item.productId.slug}`}>Link</Link>
                 </td>

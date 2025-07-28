@@ -29,12 +29,14 @@ interface ActionContent {
 const ManageProducts = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
   const [updateStatus, setUpdateStatus] = useState<UpdateStatus>({
     loading: false,
     error: null,
     success: false,
   });
+
+  console.log(updateStatus);
 
   // Pagination states
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -165,9 +167,9 @@ const ManageProducts = () => {
         setProductActions(initialActions);
 
         setTotalPages(Math.ceil(data.data.length / productsPerPage));
-      } catch (err: any) {
+      } catch (err) {
         console.error("Error fetching stats:", err);
-        setError(err.message);
+        // setError(err);
       } finally {
         setLoading(false);
       }
@@ -222,7 +224,7 @@ const ManageProducts = () => {
 
   console.log(products);
   if (loading) return <div>Loading stats...</div>;
-  if (error) return <div>Error loading stats: {error}</div>;
+  // if (error) return <div>Error loading stats: {error}</div>;
 
   return (
     <div>
