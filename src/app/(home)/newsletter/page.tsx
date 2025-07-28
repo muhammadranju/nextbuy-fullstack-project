@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail } from "lucide-react";
-import { useForm } from "react-hook-form";
+import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import Image from "next/image";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
 
 const newsletterSchema = z.object({
@@ -50,6 +48,7 @@ export default function Newsletter() {
       );
       reset();
     } catch (error) {
+      console.log(error);
       setMessage("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -117,10 +116,7 @@ export default function Newsletter() {
 
           <p className="text-xs text-gray-500 mt-4">
             We respect your privacy. Read our{" "}
-            <a
-             
-              className="text-[#3C9E26] font-semibold hover:underline"
-            >
+            <a className="text-[#3C9E26] font-semibold hover:underline">
               Privacy Policy
             </a>
             .
@@ -141,8 +137,8 @@ export default function Newsletter() {
             className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
           />
           <blockquote className="text-gray-600 text-sm mb-2 italic">
-            "Ever since I subscribed, I've been getting amazing deals and early
-            access to the latest products. Highly recommended!"
+            Ever since I subscribed, I&apos;ve been getting amazing deals and
+            early access to the latest products. Highly recommended!
           </blockquote>
           <p className="font-semibold">
             John Doe <span className="text-gray-500">- CEO, TechCorp</span>
