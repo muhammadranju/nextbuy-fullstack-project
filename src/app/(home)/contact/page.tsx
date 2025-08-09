@@ -20,11 +20,13 @@ const Contact = () => {
     message: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form Data Submitted:", formData);
     alert("Message Sent Successfully!");
@@ -36,14 +38,21 @@ const Contact = () => {
       {/* Header */}
       <div className="text-white text-center py-16">
         <h1 className="text-6xl font-bold drop-shadow-lg">Contact Us</h1>
-        <p className="mt-3 text-lg opacity-90">We're here to help. Reach out to us anytime!</p>
+        <p className="mt-3 text-lg opacity-90">
+          We&apos;re here to help. Reach out to us anytime!
+        </p>
       </div>
 
       {/* Contact Form & Details */}
       <div className="container mx-auto px-6 py-12 grid md:grid-cols-2 gap-12">
         {/* Contact Form */}
-        <form className="bg-white shadow-2xl rounded-2xl p-10 space-y-6 w-full max-w-lg mx-auto" onSubmit={handleSubmit}>
-          <h2 className="text-3xl font-semibold text-gray-800 text-center">Send us a Message</h2>
+        <form
+          className="bg-white shadow-2xl rounded-2xl p-10 space-y-6 w-full max-w-lg mx-auto"
+          onSubmit={handleSubmit}
+        >
+          <h2 className="text-3xl font-semibold text-gray-800 text-center">
+            Send us a Message
+          </h2>
           <div className="space-y-4">
             <input
               type="text"
@@ -89,7 +98,10 @@ const Contact = () => {
               className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500"
             ></textarea>
           </div>
-          <button type="submit" className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold text-lg">
+          <button
+            type="submit"
+            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold text-lg"
+          >
             Send Message
           </button>
         </form>
@@ -111,10 +123,18 @@ const Contact = () => {
           </div>
 
           <div className="flex gap-4 text-3xl">
-            <a href="#" className="hover:text-blue-400 transition"><FaFacebook /></a>
-            <a href="#" className="hover:text-pink-400 transition"><FaInstagram /></a>
-            <a href="#" className="hover:text-blue-300 transition"><FaTwitter /></a>
-            <a href="#" className="hover:text-green-400 transition"><FaWhatsapp /></a>
+            <a href="#" className="hover:text-blue-400 transition">
+              <FaFacebook />
+            </a>
+            <a href="#" className="hover:text-pink-400 transition">
+              <FaInstagram />
+            </a>
+            <a href="#" className="hover:text-blue-300 transition">
+              <FaTwitter />
+            </a>
+            <a href="#" className="hover:text-green-400 transition">
+              <FaWhatsapp />
+            </a>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
@@ -120,7 +121,7 @@ const CheckoutWrapper = ({ params }: any) => {
     paymentMethod: "",
   });
 
-  const [payload, setPayload] = useState<any>(null);
+  const [payload, setPayload] = useState<unknown>(null);
   const stripe = useStripe();
   const elements = useElements();
 
@@ -237,6 +238,7 @@ const CheckoutWrapper = ({ params }: any) => {
           },
         }
       );
+      console.log(error);
       if (paymentIntent?.status === "succeeded") {
         setPaymentProcessing(false);
         setPaymentStatus("paid");

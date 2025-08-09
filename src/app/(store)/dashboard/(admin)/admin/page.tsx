@@ -14,7 +14,6 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -120,7 +119,8 @@ const Stats = () => {
         const userData = await userResponse.json();
         console.log(userData);
         setUsersCount(userData.data.length);
-      } catch (err) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (err: any) {
         console.error("Error fetching stats:", err);
         setError(err.message);
       } finally {

@@ -22,7 +22,6 @@ import { MdEmail } from "react-icons/md";
 import { TbLogout2 } from "react-icons/tb";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { useGetProductsQuery } from "@/redux/ProductApi";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -68,12 +67,14 @@ const Navbar = () => {
   };
 
   // Handle search input change
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setSearchTerm(e.target.value);
   };
 
   // Handle search submission
-  const handleSearch = async (e) => {
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchTerm.trim()) {
       try {
@@ -105,7 +106,8 @@ const Navbar = () => {
     }
   };
 
-  const handleKeyPress = (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleKeyPress = (e: any) => {
     if (e.key === "Enter") {
       handleSearch(e);
     }

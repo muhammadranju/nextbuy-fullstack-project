@@ -122,19 +122,6 @@ export async function POST(
 export async function GET(req: Request) {
   try {
     await connectDB();
-    const session = await getServerSession();
-    const user = session?.user;
-
-    // if (!user) {
-    //   return NextResponse.json(
-    //     {
-    //       status: 401,
-    //       success: false,
-    //       message: "Unauthorized",
-    //     },
-    //     { status: 401 }
-    //   );
-    // }
 
     // Parse the URL
     const { searchParams } = new URL(req.url);

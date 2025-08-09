@@ -1,7 +1,6 @@
 import connectDB from "@/config/db/connectDB";
 import Order from "@/models/order.model/order.model";
 import { NextRequest, NextResponse } from "next/server";
-import { v4 as uuid } from "uuid";
 
 // Interface for request body validation
 interface OrderRequestBody {
@@ -47,31 +46,6 @@ export async function POST(req: NextRequest) {
     const body: OrderRequestBody = await req.json();
 
     console.log(body);
-    // Validation
-    const requiredFields = [
-      body.customer?.userId,
-      body.customer?.name,
-      body.customer?.email,
-      body.items?.length > 0,
-      body.shippingAddress?.street,
-      body.shippingAddress?.city,
-      body.shippingAddress?.state,
-      body.shippingAddress?.postalCode,
-      body.shippingAddress?.country,
-      body.payment?.method,
-      body.payment?.amount,
-    ];
-
-    // if (requiredFields.some((field) => !field)) {
-    //   return NextResponse.json(
-    //     {
-    //       status: 400,
-    //       success: false,
-    //       message: "Missing required fields",
-    //     },
-    //     { status: 400 }
-    //   );
-    // }
 
     // Validate items
     for (const item of body.items) {
