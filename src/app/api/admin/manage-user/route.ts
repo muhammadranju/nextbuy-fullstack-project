@@ -79,7 +79,7 @@ export async function PUT(req: Request) {
     const users = await User.findOne({ email: userEmail });
 
     users.role = role;
-    user.status = status;
+    users.status = status;
 
     await users.save();
 
