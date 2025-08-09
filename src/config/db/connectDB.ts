@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const NEXT_PUBLIC_MONGODB_URI: string =
-  process.env.NEXT_PUBLIC_MONGODB_URI || "";
+const NEXT_PUBLIC_MONGODB_URI: string = process.env
+  .NEXT_PUBLIC_MONGODB_URI as string;
 
 if (!NEXT_PUBLIC_MONGODB_URI) {
   throw new Error("❌ MONGODB_URL is not defined in environment variables");
