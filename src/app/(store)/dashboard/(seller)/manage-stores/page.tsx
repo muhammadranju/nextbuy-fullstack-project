@@ -55,7 +55,8 @@ const ManageStores = () => {
 
       const result = await res.json();
       console.log("Response from store", result);
-      if (res.success == "true") {
+
+      if (result.success === true) {
         form.reset();
         toast.success("Store information saved successfully!");
       } else {

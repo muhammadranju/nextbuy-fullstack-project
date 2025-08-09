@@ -320,7 +320,7 @@ const ManageProducts = () => {
             </button>
 
             <div className="flex">
-              {[...Array(totalPages).keys()].map((number) => (
+              {Array.from(Array(totalPages).keys()).map((number) => (
                 <button
                   key={number + 1}
                   onClick={() => paginate(number + 1)}
